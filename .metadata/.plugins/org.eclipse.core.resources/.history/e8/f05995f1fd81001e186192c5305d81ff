@@ -1,0 +1,32 @@
+package MisClases;
+
+public class Juego {
+
+	final private int numFilas = 6;
+	final private int numColumnas = 7;
+	
+	
+	private char[][] tablero;
+	
+	//Contructor
+	Juego(){
+		tablero=new char[numFilas][numColumnas];
+	}
+	
+	void vaciarTablero() {
+		for(int i=0;i<numFilas;i++) {
+			for(int j=0;j<numColumnas;j++) {
+				tablero[i][j]=' ';
+			}
+			
+		}
+	}
+	void pintarTablero() {
+		for(int i=0;i<numFilas;i++) {
+			for(int j=0;j<numColumnas;j++) {
+				System.out.print("|" +tablero[i][j]+"|");
+			}
+			System.out.println(""); // para que haga el salto el linea
+			}
+	}
+}

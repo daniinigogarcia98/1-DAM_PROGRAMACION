@@ -1,0 +1,122 @@
+package MisClases;
+
+import java.util.Arrays;
+import java.util.Random;
+
+//import java.util.Arrays;
+
+public class Aplicacion {
+	
+
+	public static void main(String[] args) {
+		//Declaramos una varible de tipo array a enteros
+		//OJO el array todavia no esta creado
+		//int[] arNumeros= {1,2,3,4,5,6,7,8,9,10};
+		//String[] arCadenas= {"Hola","Buenas tardes","Adios"};
+		//Arrays.sort(arCadenas);
+		//System.out.println(Arrays.toString(arCadenas));
+		//int[] arNumeros= {10,2,6,4,1};
+		int[] arNumeros= {1,4,3,7};
+		int [] res=copiarArray(arNumeros);
+		System.out.println(Arrays.toString(arNumeros));
+		System.out.println(Arrays.toString(res));
+		int[] res2=lanzarDado(1000);
+		System.out.println(Arrays.toString(res2));
+		//Arrays.sort(arNumeros);
+		//System.out.println(Arrays.toString(arNumeros));
+		//int[] resultado=contarParesImpares(arNumeros);
+		//System.out.println("El número de valores pares es :" + resultado[0]);
+		//System.out.println("El número de valores impares es :" + resultado[1]);
+		//int[] arNumeros=crearContenido(10);
+		//int[] arNumeros;
+		//Creamos el Array y se lo asignamos a la variable anterior
+		//arNumeros=new int[10];
+		//arNumeros=null;
+		//int[] arNumeros2=new int[10];
+	/**	int numPositivos=0;
+		int numNegativos=0;
+		//Nos Recorremos las distintas posiciones del array
+		for(int i=0; i < arNumeros.length;i ++)
+		{
+			
+			int valor=arNumeros[i];
+			if(valor>=0)
+				numPositivos ++;
+			//suma+=valor;
+			else
+				numNegativos ++;
+		}
+		System.out.println(numPositivos);
+		System.out.println(numNegativos);**/
+		//mostarContenido(arNumeros);
+		//cambiarContenido(arNumeros);
+		//for(int i=0; i < arNumeros.length;i ++)
+		//{
+			
+			//int valor=arNumeros[i];
+			//System.out.println(valor);
+	//}
+	//}
+	
+	//public static void mostarContenido(int[]arDatos) {
+	//	for(int i=0; i < arDatos.length;i ++)
+	//	{
+			
+			//int valor=arDatos[i];
+			//System.out.println(valor);
+	//}
+
+//}
+	//public static int[] crearContenido(int numElementos) {
+		//int[] arAux=new int[numElementos];
+		//return arAux;
+	//}
+	
+	//public static void cambiarContenido(int[]arDatos) {
+		//for(int i=0; i < arDatos.length; i++)
+		//{
+			
+			//int valor=arDatos[i];
+			//arDatos[i]=valor+1;
+			//System.out.println(valor);
+	//}
+		//public static int[] contarParesImpares(int[]arDatos) {
+		//	int numPares=0;
+		//	int numImpares=0;
+			
+			//for(int i=0; i < arDatos.length;i ++){
+				//int valor=arDatos[i];
+			//}
+			//	for(int valor :arDatos) {
+				//	if(valor%2==0)
+				//		numPares++;
+				//	else numImpares++;
+				//}
+				//int[] resultado= {numPares,numImpares};
+				//return resultado;
+		}
+	//copiar array
+		public static int[] copiarArray(int[]arDatos) {
+			//creamos el array
+			int[]resultado=new int[arDatos.length];
+			//nos recorremos el array
+			for(int i=0; i <arDatos.length;i++) {
+				//le decimos en que posiciones queremos que copie
+				resultado[i]=arDatos[i];
+			}
+			return resultado;
+		}
+		//metodo que devuelve en num de caras de un dado en un array
+		public static int[] lanzarDado(int numVeces) {
+			//creamos el array
+			//las posiciones int del array se inicializan a 0
+			int[]resultado=new int[6];
+			Random dado=new Random();
+			
+			for(int i=0;i<numVeces;i++) {
+				int valor=dado.nextInt(1,7);// lazamos dado
+				resultado[valor-1]++;
+			}
+			return resultado;
+		}
+	}

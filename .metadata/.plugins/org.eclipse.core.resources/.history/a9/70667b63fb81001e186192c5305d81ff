@@ -1,0 +1,9 @@
+package MisClases;
+
+public class Juego {
+
+	final int numFilas = 6;
+	final int numColumnas = 7;
+	
+	char[][] tablero;
+}

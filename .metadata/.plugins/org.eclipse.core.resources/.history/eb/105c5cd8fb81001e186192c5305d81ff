@@ -1,0 +1,25 @@
+package MisClases;
+
+public class Juego {
+
+	final private int numFilas = 6;
+	final private int numColumnas = 7;
+	
+	private int numCasillasVacias;
+	
+	private char[][] tablero;
+	
+	//Contructor
+	Juego(){
+		tablero=new char[numFilas][numColumnas];
+	}
+	
+	void vaciarTablero() {
+		for(int i=0;i<numFilas;i++) {
+			for(int j=0;j<numColumnas;j++) {
+				tablero[i][j]=' ';
+			}
+			numCasillasVacias=numFilas*numColumnas;
+		}
+	}
+}
