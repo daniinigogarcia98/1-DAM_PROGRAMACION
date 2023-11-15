@@ -3,81 +3,105 @@ package MisClases;
 import java.util.Scanner;
 
 public class Juego {
-
-	final private int numFilas = 6;
-	final private int numColumnas = 7;
-
+	
+	final private int numFilas=6;
+	final private int numColumnas=7;
+	
+	private int turno;
+	
 	private int numCasillasVacias;
-	private int turno=1;
-	private char[][] tablero;
-
-	// Contructor
+	
+	private char [][]tablero;
+	
+	
+	
+	
+	// Constructor
 	Juego() {
-		tablero = new char[numFilas][numColumnas];
+		tablero=new char[numFilas][numColumnas];
 		turno=1;
 	}
-
+	
+	
 	void vaciarTablero() {
-		for (int i = 0; i < numFilas; i++) {
-			for (int j = 0; j < numColumnas; j++) {
-				tablero[i][j] = ' ';
+		for(int i=0;i<numFilas;i++ ) {
+			for(int j=0;j<numColumnas;j++ ) {			
+				tablero[i][j]=' ';
 			}
-
-			numCasillasVacias = numFilas * numColumnas;
 		}
+			
+		numCasillasVacias=numFilas*numColumnas;
 	}
-
+		
+	
 	void pintarTablero() {
-		for (int i = 0; i < numFilas; i++) {
-			for (int j = 0; j < numColumnas; j++) {
-				System.out.print("|" + tablero[i][j] + "|");
+		for(int i=0;i<numFilas;i++ ) {
+			for(int j=0;j<numColumnas;j++ ) {
+				System.out.print("|" + tablero[i][j] +"|");
 			}
-			System.out.println(""); // para que haga el salto el linea
+			System.out.println("");   // Para que haga el salto de línea
 		}
 	}
 	
+
 	boolean introducirFicha() {
 		if(numCasillasVacias==0)
 			return false;
+		
 		Scanner teclado=new Scanner(System.in);
+		
 		boolean opcionValida=false;
 		while(opcionValida==false) {
-			System.out.println("Introduce el número de columnas :");
+			System.out.print("Introduce el número de columna : ");
 			int columna=teclado.nextInt();
-			//Comprobamos que la columna que ha elegido el usuario está en los limites que ha elegido el usuario
-			if(columna>=0 && columna < numColumnas) {
-				// Recorremos las posiciones de la tabla para esa columna de abajo a arriba
-				for(int i=numFilas-1;i>=0;i--) {
+
+			// Comprobamos que la columna que ha elegido el usuario está en los límites del tablero
+			if(columna>=0 && columna < numColumnas ) {
+				/// Recorremos las posiciones de la tabla para esa columna de abajo a arriba
+				for(int i=numFilas-1 ; i>=0 ; i--) {
+
 					if(tablero[i][columna]==' ') {
-						//Hemos encontrado posición valida
-						opcionValida=true;//para salirnos del bucle while
+						// Hemos encontrado posición vacía
+						opcionValida=true;  /// Para salirnos del bucle while
 						if(turno==1)
 							tablero[i][columna]='X';
 						else tablero[i][columna]='O';
 						
-						break;// me salgo del bucle for
+						break;  // Me salgo del bucle for
 					}
 				}
 			}
-			else System.err.println("La columna no es Correcta");
 		}
-			return true;
+		
+		return true;
 	}
 	
+	
 	void partida() {
-		//vaciamos el tablero
+		
+		/// Vaciamos el tablero
 		vaciarTablero();
-		//pintamos el tablero
+		
+		/// Pintamos el tablero para ver su estado
 		pintarTablero();
 		
-		while(introducirFicha()==true) {
-			//Chequeamos si hay ganador
+		while (introducirFicha()==true) {
+			// Cheqaueamos si hay ganador
 			
-			//Cambiamos el turno del jugador
+			// cambiamos el turno del jugador
 			if(turno==1)
 				turno=2;
-			else turno=3;
-			pintarTablero();
+			else turno=1;
+			
+			// Decrementamos el número de casillas vacías
+			numCasillasVacias--;
+			
+			pintarTablero();			
 		}
+		
+		
+	
 	}
+	
+
 }
