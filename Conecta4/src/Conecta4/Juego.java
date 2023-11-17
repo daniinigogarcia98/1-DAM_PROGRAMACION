@@ -20,12 +20,13 @@ public class Juego {
 		Scanner teclado=new Scanner(System.in);
 		boolean salir = false;
 		while(salir==false) {
-			System.out.println("+++++++++++++++++++++++++");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			System.out.println("Bienvenido a Conecta 4:");
-			System.out.println("+++++++++++++++++++++++++");
-			System.out.println("1- Jugar ");
-			System.out.println("2- Salir");
-			System.out.println("+++++++++++++++++++++++++");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("1~ Jugar ");
+			System.out.println("2~ Salir");
+			System.out.println("3~ Verificar Ganador");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			int opcion = teclado.nextInt();
 			switch(opcion) {
 			case 1:
@@ -34,6 +35,9 @@ public class Juego {
 			 
 			case 2:
 				salir = true;
+				break;
+			case 3:
+				verificaGanador();
 				break;
 			default:
 				System.err.println("No hay mas opciones");
@@ -68,27 +72,29 @@ public class Juego {
 	}
 	
 
-	boolean introducirFicha() {
+	int[] introducirFicha() {
 		if(numCasillasVacias==0)
-			return false;
-		
+			return null;
+		int i;
+		int columna=0;
 		Scanner teclado=new Scanner(System.in);
 		
 		boolean opcionValida=false;
 		while(opcionValida==false) {
-			System.out.print("Introduce el número de columna : ");
-			int columna=teclado.nextInt();
+			System.out.print("Jugador"+" "+turno+"  Introduce el número de columna : ");
+			columna=teclado.nextInt();
 
 			// Comprobamos que la columna que ha elegido el usuario está en los límites del tablero
 			if(columna>=0 && columna < numColumnas ) {
 				/// Recorremos las posiciones de la tabla para esa columna de abajo a arriba
-				for(int i=numFilas-1 ; i>=0 ; i--) {
+				for(i=numFilas-1 ; i>=0 ; i--) {
 
 					if(tablero[i][columna]==' ') {
 						// Hemos encontrado posición vacía
 						opcionValida=true;  /// Para salirnos del bucle while
 						if(turno==1)
 							tablero[i][columna]='X';
+						
 						else tablero[i][columna]='O';
 						
 						break;  // Me salgo del bucle for
@@ -97,7 +103,9 @@ public class Juego {
 			}
 		}
 	
-		return true;
+		int[] resultado= {i,columna};
+		return resultado;
+		
 	}
 	
 	
@@ -126,6 +134,15 @@ public class Juego {
 		
 	
 	}
-	
+	private void verificaGanador() {
+	    boolean ganador = false;
+	    // Verificamos horizontalmente
+	    for (int i = 0; i < numFilas; i++) {
+	        for (int j = 0; j < numColumnas; j++) {
+	            if (tablero[i][j] != ' ') {
+	            }
+	        }
+	    }
+	}
 
 }
