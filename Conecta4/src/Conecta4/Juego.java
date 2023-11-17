@@ -75,7 +75,7 @@ public class Juego {
 	int[] introducirFicha() {
 		if(numCasillasVacias==0)
 			return null;
-		int i;
+		int i = 0;
 		int columna=0;
 		Scanner teclado=new Scanner(System.in);
 		
@@ -117,7 +117,7 @@ public class Juego {
 		/// Pintamos el tablero para ver su estado
 		pintarTablero();
 		
-		while (introducirFicha()==true) {
+		while ((int[]res=introducirFicha())!=null) {
 			// Chequeamos si hay ganador
 			
 			// cambiamos el turno del jugador
