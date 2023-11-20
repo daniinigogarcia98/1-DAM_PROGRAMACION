@@ -21,4 +21,9 @@ public class DatosPersona {
 		eMail=mail;
 		
 	}
+	
+	public String formatoCorto(){
+		String resultado;
+		resultado=nombre +" ("+numFijo+" , "+numMovil+")";
+	}
 }

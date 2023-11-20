@@ -50,9 +50,19 @@ public class Agenda {
 			return-1;
 			
 		}
+		return i;
 	}
 	
+	public void mostrarEntradasAgenda(){
+		
+		for(int i=0;i<agenda.length;i++) {
+			if(agenda[i]!=null) {
+				//Muestro los datos de la entrada
+				
+				System.out.println(i+"-"+agenda[i].formatoCorto());
+			}
+		}
+	}
 	
-	
-	//Método
+	//Métodos
 }
