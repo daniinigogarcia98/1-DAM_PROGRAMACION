@@ -66,7 +66,6 @@ public class Aplicacion {
 				//salir=true;
 			//}
 		}
-
+		teclado.close();
 	}
-
 }

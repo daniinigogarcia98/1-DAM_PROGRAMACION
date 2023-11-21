@@ -1,6 +1,5 @@
 package MisClases;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Agenda {

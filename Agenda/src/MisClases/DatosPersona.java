@@ -24,7 +24,8 @@ private String eMail;
 	
 	public String formatoCorto(){
 		String resultado;
-		return resultado=nombre + " "+ apellidos+" ("+numFijo+" , "+numMovil+")";
+		resultado=nombre + " "+ apellidos+" ("+numFijo+" , "+numMovil+")";
+		return resultado;
 	}
 	public String getNombre() {
 		return nombre;
